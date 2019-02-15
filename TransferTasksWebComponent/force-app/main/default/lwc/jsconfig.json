@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/custom-lookup-result-web-component": [
+                "customLookupResultWebComponent/customLookupResultWebComponent.js"
+            ],
+            "c/custom-lookup-web-component": [
+                "customLookupWebComponent/customLookupWebComponent.js"
+            ],
+            "c/hello-world": [
+                "helloWorld/helloWorld.js"
+            ],
+            "c/transfer-tasks": [
+                "transferTasks/transferTasks.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ]
+}

@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="HelloWorld" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <p>Hello, {greeting}!</p>
+            <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+
+       
+        </div>
+
+        <div class="slds-m-around_medium">
+                <lightning-layout vertical-align="end" class="slds-m-bottom_small">
+                    <lightning-layout-item flexibility="grow">
+                        <lightning-input
+                            type="search"
+                            onchange={handleSearch}
+                            label="Search"
+                            value={searchKey}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                
+                    <lightning-layout-item class="slds-p-left_xx-small">
+                        <lightning-button
+                            label="Search"
+                            onclick={handleSearch}
+                        ></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <template if:true={users}>
+                    <template for:each={users} for:item="user">
+                        <p key={user.Id}>{user.Name}</p>
+                    </template>
+                </template>
+            </div>
+            <template if:true={error}>
+             
+            </template>
+
+
+
+
+
+    </lightning-card>
+</template>

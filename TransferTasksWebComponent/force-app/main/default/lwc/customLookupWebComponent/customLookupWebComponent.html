@@ -1,0 +1,71 @@
+<template>
+
+    <div onmouseleave={onblur} class="slds-form-element slds-lookup slds-is-close" data-select="single">
+        <label class="slds-form-element__label" for="lookup-348">{label}</label>
+        <!--This part is for display search bar for lookup-->
+        <div class="slds-form-element__control">
+
+            <div class="slds-input-has-icon">
+                <!-- This markup is for when an record is selected -->
+                <div>
+
+
+                </div>
+                <div class="slds-show">
+
+                    <div>
+                        <lightning-layout vertical-align="end">
+                            <!--class="slds-m-bottom_small" -->
+                            <lightning-layout-item flexibility="grow">
+                                <template if:false={selectedRecord}>
+
+                                    <lightning-input type="search" label="Search" value={searchKey}
+                                        onchange={handleSearch} onclick={onfocus}>
+
+
+                                    </lightning-input>
+                                </template>
+                                <template if:true={selectedRecord}>
+                                    <lightning-pill class="pillSize" label={selectedRecord.Name}
+                                        name={selectedRecord.Name} onremove={clearpill}>
+
+                                        <lightning-icon icon-name={iconname} size="x-small"></lightning-icon>
+
+                                    </lightning-pill>
+                                </template>
+
+                            </lightning-layout-item>
+
+                        </lightning-layout>
+                        <!--This part is for Display typehead lookup result List-->
+
+                        <ul style="min-height:40px;margin-top:20px !important"
+                            class="slds-listbox slds-listbox_vertical" role="listbox">
+                            <lightning-spinner class="slds-hide" variant="brand" size="small"></lightning-spinner>
+
+                            <template if:true={listOfRecords}>
+                                <template if:false={selectedRecord} for:each={listOfRecords} for:item="record">
+                                    <p key={record.Id}></p>
+                                    <span key={record.Id}></span>
+                                    <c-custom-lookup-result-web-component key={record.Id} orecord={record}
+                                        iconname={iconname} onselected={recordSelected}>
+                                    </c-custom-lookup-result-web-component>
+                                </template>
+                            </template>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+
+        </div>
+    </div>
+
+
+</template>
