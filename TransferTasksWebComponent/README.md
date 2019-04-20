@@ -1,3 +1,3 @@
-Custom reusable lookup 
+Reusable custom lookup 
 Lightning web component
 
